@@ -62,3 +62,7 @@ int binary(int input_binary, int input_length)
     // value = 0
     // for number in input
         // read last number(n), value+= 2 to the power of n-1 (1,2,4,8,16...)
+
+// TODO
+// Does not ever need to be an integer, would allow for larger numbers if it's always read as 
+// a string. Also means I won't need atoi as I can just read the string
