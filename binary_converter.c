@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int binary(int input_binary, int input_length);
+int binary(string input_binary, int input_length);
 
 int main(void)
 {
@@ -12,16 +12,10 @@ int main(void)
     {
         string input = get_string("Enter binary value. Q to exit: ");
         int input_length = strlen(input);
-        // ignore super long input
-        if (input_length > 10)
+        if (strspn(input, "01"))
         {
-            printf("Value is too long. Max is 10.\n");
-        }
-        // ignore any non-binary input
-        else if (strspn(input, "01"))
-        {
-            int input_binary = atoi(input);
-            binary(input_binary, input_length);
+            // int input_binary = atoi(input);
+            binary(input, input_length);
             exit(0);
         }
         else if (strcmp(input, "q") == 0 || strcmp(input, "Q") == 0)
@@ -36,20 +30,17 @@ int main(void)
 
 }
 
-int binary(int input_binary, int input_length)
+int binary(string input, int input_length)
 {
     int value = 0;
     for (int i = 1; i < input_length+1; i++)
     {
-        int bin = input_binary % 10;
-        input_binary = input_binary/10;
-        if (bin == 1)
+        if (input[input_length - i] == '1')
         {
-            value += pow(2, i-1);
+            value += pow(2,i-1);
         }
-
     }
-    printf("%i = %i\n", input_binary, value);
+    printf("%s = %i\n", input, value);
     return 0;
 }
 
@@ -64,5 +55,5 @@ int binary(int input_binary, int input_length)
         // read last number(n), value+= 2 to the power of n-1 (1,2,4,8,16...)
 
 // TODO
-// Does not ever need to be an integer, would allow for larger numbers if it's always read as 
-// a string. Also means I won't need atoi as I can just read the string
+                                //done  // Does not ever need to be an integer, would allow for larger numbers if it's always read as
+                                        // a string. Also means I won't need atoi as I can just read the string
