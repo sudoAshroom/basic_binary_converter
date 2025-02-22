@@ -13,9 +13,9 @@ int main(void)
         string input = get_string("Enter binary value. Q to exit: ");
         int input_length = strlen(input);
         // ignore super long input
-        if (input_length > 11)
+        if (input_length > 10)
         {
-            printf("Value is too long. Max is 11.\n");
+            printf("Value is too long. Max is 10.\n");
         }
         // ignore any non-binary input
         else if (strspn(input, "01"))
@@ -30,7 +30,7 @@ int main(void)
         }
         else
         {
-            printf("Value is too long (max 11), not binary, or otherwise faulty.\n");
+            printf("Value is too long (max 10), not binary, or otherwise faulty.\n");
         }
     }
 
